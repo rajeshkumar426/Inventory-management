@@ -1,0 +1,33 @@
+{% extends 'base-template.html' %}
+{% block content %}
+
+<div class="container" style="float: contour;" align="center">
+    <h3 align="center">Product Details</h3>
+        <div class="form-horizontal" title="Summary">
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">prod_id</th>
+                            <th scope="col">Name</th>
+                            <th scopr="col">Quantity</th>
+                            <th scope="col">price</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        {% for product in products %}
+                           <tr>        
+                                <td>{{ product[0] }}</td>
+                                <td>{{ product[1] }}</td>
+                                <td>{{ product[2] }}</td>
+                                <td>{{ product[3]}}</td>
+                                <td>{{ product[4] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock%}

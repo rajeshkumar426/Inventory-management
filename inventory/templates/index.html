@@ -1,0 +1,33 @@
+{% extends 'base-template.html' %}
+{% block content %}
+    <div class="container" style="float: contour;" align="center">
+    <h3 align="center">Summary</h3>
+        <div class="form-horizontal" title="Please click for more information">
+        {% if products == None or products|length == 0 %}
+            <h3 align="center" class="font-weight-light">Product not available yet</h3>
+        {% else %}
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">prod_id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        {% for product in products %}
+                           <tr>        
+                                <td><a href="{{ url_for('get_product_details_on_id', prod_id=product[0]) }}" type="button" target="_blank" title="Please click for more information"
+                                     style="text-underline-position: below; font-weight: bold;" >{{ product[0] }}</a></td>
+                                <td>{{ product[1] }}</td>
+                                <td>{{ product[2] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </thead>
+                </table>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
