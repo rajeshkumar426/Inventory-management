@@ -8,7 +8,7 @@ $ pip3 install -r requirements.txt
 ### Starting Things Up
 
 To run the application, change the current working directory to
-\~/inventory-management-system/inventory/
+\~/inventory-management/inventory/
 
 ``` sourceCode console
 $ cd inventory
