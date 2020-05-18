@@ -19,3 +19,8 @@ run the app by typing the following command in your terminal
 ``` sourceCode console
 $ python3 -m flask run
 ```
+run the unit test by typing the follwing command in your terminal
+
+```sourceCode console
+$ python3 -m pytest tests
+```

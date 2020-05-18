@@ -35,7 +35,7 @@ def init_database():
     db.commit()
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def summary():
     '''
     Get all products detail
@@ -133,7 +133,6 @@ def edit():
     '''
         Edit or modify product details
     '''
-    type_ = request.args.get('type')
     db = sqlite3.connect(DATABASE_NAME)
     cursor = db.cursor()
 
@@ -154,3 +153,7 @@ def edit():
     return redirect(url_for('product'))
 
     return render(url_for(type_))
+
+
+if __name__ == '__main__':
+    app.run()
