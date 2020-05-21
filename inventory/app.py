@@ -109,8 +109,9 @@ def delete():
     db = sqlite3.connect(DATABASE_NAME)
     cursor = db.cursor()
 
-    id_ = request.args.get('prod_id')
-    cursor.execute("DELETE FROM products WHERE prod_id == ?", str(id_))
+    id = request.args.get('prod_id')
+    # print(str(id_))
+    cursor.execute("DELETE FROM products WHERE prod_id == ?", [str(id)])
     db.commit()
 
     return redirect(url_for('product'))
@@ -123,7 +124,7 @@ def get_product_details_on_id():
     id = request.args.get('prod_id')
     db = sqlite3.connect(DATABASE_NAME)
     cursor = db.cursor()
-    cursor.execute("SELECT* from products WHERE prod_id == ?", str(id))
+    cursor.execute("SELECT* from products WHERE prod_id == ?", [str(id)])
     products = cursor.fetchall()
     print(products)
     return render("products_details.html", link=link,products=products)

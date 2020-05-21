@@ -1,6 +1,6 @@
 from app import app
-import unittest
 import pytest
+
 
 @pytest.fixture(scope='module')
 def test_client():
@@ -70,7 +70,7 @@ def test__edit_product_details(test_client):
     edit or modification of product details
     '''
     resp = test_client.post('/edit', 
-    data=dict(prod_id=19,prod_name='cda',prod_quantity=3,prodss_price=130),
+    data=dict(prod_id=3,prod_name='cda',prod_quantity=3,prod_price=130),
     follow_redirects=True)
     assert resp.status_code == 200
 
